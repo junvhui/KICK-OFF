@@ -163,7 +163,7 @@ const Post = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://54.180.120.249:8000/article');
+        const response = await axios.get('/article');
         setArticleData(response.data.article);
       } catch (error) {
         console.error('Error fetching user data:', error);
