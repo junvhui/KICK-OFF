@@ -196,11 +196,12 @@ const Rank: React.FC = () => {
 
   if (data) {
     // 팀 별 데이터 저장
-    const eplData = data[0].rank[0];
-    const BL1Data = data[1].rank[0];
-    const LaData = data[3].rank[0];
-    const SaData = data[2].rank[0];
-    const L1Data = data[4].rank[0];
+    const eplData = data[0].rank;
+    console.log(eplData);
+    const BL1Data = data[1].rank;
+    const LaData = data[3].rank;
+    const SaData = data[2].rank;
+    const L1Data = data[4].rank;
 
     // -----------------------
     // EPL 팀 이름, 로고 추출
