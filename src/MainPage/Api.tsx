@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// EPL 순위 데이터 받아오기
 export async function fetchRanks() {
   return await axios.get('/rank').then((res) => res.data.rank);
 }
