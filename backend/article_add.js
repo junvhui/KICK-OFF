@@ -21,11 +21,10 @@ async function insertDocument() {
     await connectToMongoDB();
 
     const newDocument = {
-      title: '투헬 감독과 ‘신뢰 관계’ 깨졌다…올여름 바이에른 뮌헨 떠날 계획',
-      content:
-        'https://www.goal.com/kr/%EB%89%B4%EC%8A%A4/%E1%84%90%E1%85%AE%E1%84%92%E1%85%A6%E1%86%AF-%E1%84%80%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A9%E1%86%A8%E1%84%80%E1%85%AA-%E1%84%89%E1%85%B5%E1%86%AB%E1%84%85%E1%85%AC-%E1%84%80%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A8-%E1%84%81%E1%85%A2%E1%84%8C%E1%85%A7%E1%86%BB%E1%84%83%E1%85%A1--%E1%84%8B%E1%85%A9%E1%86%AF%E1%84%8B%E1%85%A7%E1%84%85%E1%85%B3%E1%86%B7-%E1%84%87%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%A6%E1%84%85%E1%85%B3%E1%86%AB-%E1%84%86%E1%85%B1%E1%86%AB%E1%84%92%E1%85%A6%E1%86%AB-%E1%84%84%E1%85%A5%E1%84%82%E1%85%A1%E1%86%AF-%E1%84%80%E1%85%A8%E1%84%92%E1%85%AC%E1%86%A8/blt607e62f48dc29af4',
-      url: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/bltde7bfb50d1f04bbb/659435a40c16ee0407258cdb/GettyImages-1835793206(1).jpg?auto=webp&format=pjpg&width=2048&quality=60',
-      team: '바이에른 뮌헨',
+      title: '"음바페, 레알 마드리드와 합의" BBC까지 등장...음바페 이적 사가 사실상 종료',
+      content: 'https://v.daum.net/v/20240221065309589',
+      url: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/bltd69772deadeaf1b3/65c26378d732eb040adaa9e0/Mbappe_Real_Madrid.jpg?auto=webp&format=pjpg&width=2048&quality=60',
+      team: '레알 마드리드',
     };
 
     const insertResult = await collection.insertOne(newDocument);
