@@ -22,4 +22,4 @@ jobs:
             git pull origin main
             npm i --force
             npm run build
-            pm2 restart server.js
+            sudo node server.js > /dev/null 2>&1 &
