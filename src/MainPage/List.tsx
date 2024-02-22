@@ -84,6 +84,10 @@ const PostContainer = styled.div`
       color: #343434;
     }
   }
+
+  @media (max-width: 600px) {
+    width: 80%;
+  }
 `;
 
 const Team = styled.div`
@@ -110,6 +114,10 @@ const PostTitle = styled.h2`
   white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
   overflow: hidden; /* 넘치는 텍스트 숨김 */
   text-overflow: ellipsis; /* 생략 부호 (...) 표시 */
+
+  @media (max-width: 600px) {
+    font-size: 17px;
+  }
 `;
 
 const PostImage = styled.img`
@@ -125,6 +133,10 @@ const PostImage = styled.img`
   &:hover {
     position: center;
     transform: scale(1.07); /* 이미지 확대 */
+  }
+
+  @media (max-width: 600px) {
+    width: 80%;
   }
 `;
 
