@@ -24,6 +24,9 @@ const PostWrap = styled.div`
   background-color: #484747;
   overflow: hidden;
   float: left;
+  @media (max-width: 600px) {
+    width: 20rem;
+  }
 `;
 
 const TitleWrap = styled.div`

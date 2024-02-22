@@ -21,6 +21,9 @@ const Wrapper = styled.div`
   width: 135%;
   margin-top: 1.7rem;
   margin-left: -1.5rem;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const Content = styled.div`
@@ -46,6 +49,9 @@ const Tabs = styled.div`
   height: 75px;
   border-radius: 1rem 1rem 0px 0px;
   color: white;
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 const TabButton = styled.button<{ isActive: boolean }>`
@@ -190,9 +196,9 @@ const Rank: React.FC = () => {
     console.log(data);
   }
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
 
   if (data) {
     // 팀 별 데이터 저장

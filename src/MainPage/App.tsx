@@ -18,7 +18,7 @@ interface ContentsImgProps {
 
 const Background = styled.div`
   width: 100%;
-  height: 150%;
+  height: 100%;
   display: block;
   font-size: 16px;
   font-family: 'ESAM';

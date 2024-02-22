@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './MainPage/App';
 import Header from './Common/Header';
+import Footer from './Common/Footer';
 import GlobalStyle from './GlobalStyle';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -19,6 +20,7 @@ root.render(
       <Header />
       <App />
       <ReactQueryDevtools initialIsOpen={true} />
+      <Footer />
     </QueryClientProvider>
   </BrowserRouter>,
 );

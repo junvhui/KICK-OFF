@@ -4,8 +4,6 @@ import axios from 'axios'; // axios import 추가
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import lin from '../Assets/img/Lin.png';
-import seoul from '../Assets/img/seoul.png';
-import forest from '../Assets/img/forest.png';
 
 interface PostProps {
   name: string;
@@ -25,6 +23,9 @@ const Wrapper = styled.div`
   width: 135%;
   margin-top: 1.7rem;
   margin-left: -1.5rem;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const Content = styled.div`
