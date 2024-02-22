@@ -36,6 +36,10 @@ const Title = styled.div`
   font-size: 1.5rem;
   font-family: 'SUITE';
   color: #e9e8e8;
+
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const ContentsWrap = styled.div`
@@ -61,7 +65,7 @@ const ContentsWrap = styled.div`
   @media (max-width: 600px) {
     transform: scale(0.7);
     width: 35rem;
-    margin-left: -4.5rem;
+    margin-left: -7.5rem;
   }
 `;
 
