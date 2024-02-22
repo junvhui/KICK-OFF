@@ -65,7 +65,7 @@ const ContentsWrap = styled.div`
   @media (max-width: 600px) {
     transform: scale(0.7);
     width: 35rem;
-    margin-left: -7.5rem;
+    margin-left: -6rem;
   }
 `;
 
