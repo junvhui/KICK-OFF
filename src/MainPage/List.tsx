@@ -26,7 +26,7 @@ const PostWrap = styled.div`
   float: left;
   @media (max-width: 600px) {
     width: 20rem;
-    margin-left: -4rem;
+    margin-left: -2rem;
   }
 `;
 

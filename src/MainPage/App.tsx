@@ -57,6 +57,12 @@ const ContentsWrap = styled.div`
     transform: scale(0.95);
     flex-wrap: wrap;
   }
+
+  @media (max-width: 600px) {
+    transform: scale(0.8);
+    width: 35rem;
+    margin-left: -2.5rem;
+  }
 `;
 
 const ContentsImg = styled.div<ContentsImgProps>`
