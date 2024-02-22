@@ -59,9 +59,9 @@ const ContentsWrap = styled.div`
   }
 
   @media (max-width: 600px) {
-    transform: scale(0.8);
+    transform: scale(0.7);
     width: 35rem;
-    margin-left: -2.5rem;
+    margin-left: -4.5rem;
   }
 `;
 
@@ -173,7 +173,7 @@ const Content = () => {
   return (
     <div>
       <Background>
-        <Title>좋아하는 팀의 이적 정보를 한눈에 살펴보세요!</Title>
+        <Title>인기 팀의 이적 정보를 한눈에 살펴보세요!</Title>
         <SearchWrap>
           <SearchInput
             type="text"
