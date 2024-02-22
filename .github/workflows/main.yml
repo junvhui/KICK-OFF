@@ -19,7 +19,6 @@ jobs:
           port: ${{ secrets.REMOTE_SSH_PORT }}
           script: |
             cd kickoff
-            sudo pkill -f "node server.js"
             git pull origin main
             npm i --force
             npm run build
