@@ -142,7 +142,7 @@ const PostImage = styled.img`
 
   @media (max-width: 600px) {
     width: 100%;
-    height: 30rem;
+    height: 20rem;
   }
 `;
 
