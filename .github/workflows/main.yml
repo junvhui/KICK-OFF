@@ -20,6 +20,7 @@ jobs:
           script: |
             cd kickoff
             git pull origin main
+            sudo pkill -f "node server.js"
             npm i --force
             npm run build
             sudo node server.js > /dev/null 2>&1 &
