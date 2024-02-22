@@ -167,7 +167,7 @@ const Content = () => {
   return (
     <div>
       <Background>
-        <Title>인기 팀의 이적 정보를 한눈에 살펴보세요!</Title>
+        <Title>좋아하는 팀의 이적 정보를 한눈에 살펴보세요!</Title>
         <SearchWrap>
           <SearchInput
             type="text"
