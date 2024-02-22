@@ -26,6 +26,7 @@ const PostWrap = styled.div`
   float: left;
   @media (max-width: 600px) {
     width: 20rem;
+    margin-left: -4rem;
   }
 `;
 
@@ -102,6 +103,9 @@ const Team = styled.div`
   position: absolute;
   background-color: #484747;
   z-index: 999;
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
 `;
 
 const PostTitle = styled.h2`
@@ -136,7 +140,7 @@ const PostImage = styled.img`
   }
 
   @media (max-width: 600px) {
-    width: 80%;
+    width: 100%;
   }
 `;
 
