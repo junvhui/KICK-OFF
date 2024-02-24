@@ -29,7 +29,7 @@ connectToMongoDB();
 
 const PAGE_SIZE = 3;
 
-app.get('/articles', async (req, res) => {
+app.get('/article', async (req, res) => {
   const pageNumber = req.query.pageNumber ? parseInt(req.query.pageNumber) : 1;
 
   try {
