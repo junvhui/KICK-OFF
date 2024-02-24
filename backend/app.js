@@ -27,9 +27,19 @@ async function connectToMongoDB() {
 
 connectToMongoDB();
 
+const PAGE_SIZE = 3;
+
 app.get('/article', async (req, res) => {
+  const pageNumber = req.query.pageNumber ? parseInt(req.query.pageNumber) : 1;
+
   try {
-    const articles = await articleCollection.find({}).toArray();
+    const articles = await articleCollection
+      .find({})
+      .sort({ _id: -1 }) // _id를 기준으로 역순으로 정렬
+      .skip((pageNumber - 1) * PAGE_SIZE)
+      .limit(PAGE_SIZE)
+      .toArray();
+
     res.json({ result: 'success', article: articles });
   } catch (error) {
     console.error('Error fetching articles:', error);
