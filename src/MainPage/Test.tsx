@@ -1,8 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+
+import { useInView } from 'react-intersection-observer';
 
 interface PostProps {
   title: string;
@@ -195,21 +197,35 @@ const Post = () => {
   const [filterData, setFilterData] = useState<PostProps[]>([]);
 
   // 이적 기사 최신순 정렬
-  const r_articleData = [...articleData].reverse();
-  const r_filterData = [...filterData].reverse();
 
-  // 이적 기사 GET 요청
+  console.log(articleData);
+
+  // Intersection Observer를 이용하여 무한 스크롤 감지
+  const [pageNumber, setPageNumber] = useState(1);
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      // 뷰포트에 진입하면 페이지 번호를 증가시켜 새로운 데이터 요청
+      setPageNumber((prevPageNumber) => prevPageNumber + 1);
+      console.log(pageNumber);
+    }
+  }, [inView]);
+
+  // 이전 코드와 동일하게 axios를 이용하여 데이터를 가져옴
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/article');
-        setArticleData(response.data.article);
+        const response = await axios.get(`/article?pageNumber=${pageNumber}`);
+        const newData = response.data.articles;
+        setArticleData((prevData) => [...prevData, ...newData]); // 기존 데이터와 새로운 데이터 결합
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
     };
+
     fetchData();
-  }, []);
+  }, [pageNumber]); // 페이지 번호가 변경될 때마다 실행
 
   let [query, setQuery] = useSearchParams();
 
@@ -236,8 +252,8 @@ const Post = () => {
       </TitleWrap>
       <PostContent>
         {teamName ? (
-          r_filterData.length > 0 ? (
-            r_filterData.map((post, index) => (
+          filterData.length > 0 ? (
+            filterData.map((post, index) => (
               <PostContainer key={index} onClick={() => handlePostContainerClick(post.content)}>
                 <Team className="team">{post.team}</Team>
                 <PostImage style={{ backgroundImage: `url(${post.url})` }} />
@@ -247,8 +263,8 @@ const Post = () => {
           ) : (
             <EmptyContainer>해당 팀의 기사가 없습니다.</EmptyContainer>
           )
-        ) : r_articleData.length > 0 ? (
-          r_articleData.map((post, index) => (
+        ) : articleData.length > 0 ? (
+          articleData.map((post, index) => (
             <PostContainer key={index} onClick={() => handlePostContainerClick(post.content)}>
               <Team className="team">{post.team}</Team>
               <PostImage style={{ backgroundImage: `url(${post.url})` }} />
@@ -258,6 +274,7 @@ const Post = () => {
         ) : (
           <EmptyContainer>기사가 없습니다.</EmptyContainer>
         )}
+        <div ref={ref}></div>
       </PostContent>
     </PostWrap>
   );
