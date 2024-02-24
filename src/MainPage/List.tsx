@@ -218,7 +218,12 @@ const Post = () => {
       try {
         const response = await axios.get(`/article?pageNumber=${pageNumber}`);
         const newData = response.data.article;
-        setArticleData((prevData) => [...prevData, ...newData]); // 기존 데이터와 새로운 데이터 결합
+        if (newData.length > 0) {
+          setArticleData((prevData) => [...prevData, ...newData]); // 기존 데이터와 새로운 데이터 결합
+          setPageNumber((prevPageNumber) => prevPageNumber + 1); // 페이지 번호 증가
+        } else {
+          // 데이터가 없는 경우, 더 이상 가져올 데이터가 없음을 나타낼 수 있는 처리를 추가
+        }
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
