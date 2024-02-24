@@ -216,7 +216,7 @@ const Post = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`/article?pageNumber=${pageNumber}`);
+        const response = await axios.get(`/article`);
         const newData = response.data.article;
         setArticleData((prevData) => [...prevData, ...newData]); // 기존 데이터와 새로운 데이터 결합
       } catch (error) {

@@ -40,20 +40,10 @@ app.get('/article', async (req, res) => {
       .skip((pageNumber - 1) * PAGE_SIZE)
       .limit(PAGE_SIZE)
       .toArray();
-    console.log('Articles:', articles); // 서버 콘솔에 articles 데이터 출력
+
     res.json({ result: 'success', article: articles });
   } catch (error) {
     console.error('Error fetching articles:', error);
-    res.status(500).json({ result: 'error', message: 'Internal server error' });
-  }
-});
-
-app.get('/rank', async (req, res) => {
-  try {
-    const ranks = await rankCollection.find({}).toArray();
-    res.json({ result: 'success', rank: ranks });
-  } catch (error) {
-    console.error('Error fetching ranks:', error);
     res.status(500).json({ result: 'error', message: 'Internal server error' });
   }
 });
