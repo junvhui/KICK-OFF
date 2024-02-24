@@ -40,7 +40,7 @@ app.get('/article', async (req, res) => {
       .limit(PAGE_SIZE)
       .toArray();
 
-    res.json({ result: 'success', articles: articles });
+    res.json({ result: 'success', article: articles });
   } catch (error) {
     console.error('Error fetching articles:', error);
     res.status(500).json({ result: 'error', message: 'Internal server error' });
