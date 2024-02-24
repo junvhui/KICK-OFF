@@ -274,7 +274,7 @@ const Post = () => {
         ) : (
           <EmptyContainer>기사가 없습니다.</EmptyContainer>
         )}
-        <div ref={ref}>안녕</div>
+        <div ref={ref}></div>
       </PostContent>
     </PostWrap>
   );
