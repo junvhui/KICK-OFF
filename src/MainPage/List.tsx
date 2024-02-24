@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+
+import { useInView } from 'react-intersection-observer';
 
 interface PostProps {
   title: string;
@@ -22,8 +24,8 @@ const PostWrap = styled.div`
 
   justify-content: center;
   background-color: #484747;
-  overflow: hidden;
   float: left;
+
   @media (max-width: 600px) {
     width: 20rem;
     margin-left: -2rem;
@@ -64,6 +66,24 @@ const ShowAll = styled.div`
 
   &:hover {
     background-color: #353535;
+  }
+
+  @media (max-width: 600px) {
+    margin-left: -20rem;
+    margin-top: 1.5rem;
+    padding: 0.7rem 1rem;
+    height: 1rem;
+  }
+`;
+
+const PostContent = styled.div`
+  margin-top: 2rem;
+  max-height: 200vh;
+  overflow-y: auto;
+
+  /* Webkit 브라우저용 스크롤바 스타일링 */
+  &::-webkit-scrollbar {
+    width: 0;
   }
 `;
 
@@ -177,21 +197,35 @@ const Post = () => {
   const [filterData, setFilterData] = useState<PostProps[]>([]);
 
   // 이적 기사 최신순 정렬
-  const r_articleData = [...articleData].reverse();
-  const r_filterData = [...filterData].reverse();
 
-  // 이적 기사 GET 요청
+  console.log(articleData);
+
+  // Intersection Observer를 이용하여 무한 스크롤 감지
+  const [pageNumber, setPageNumber] = useState(1);
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      // 뷰포트에 진입하면 페이지 번호를 증가시켜 새로운 데이터 요청
+      setPageNumber((prevPageNumber) => prevPageNumber + 1);
+      console.log(pageNumber);
+    }
+  }, [inView]);
+
+  // 이전 코드와 동일하게 axios를 이용하여 데이터를 가져옴
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/article');
-        setArticleData(response.data.article);
+        const response = await axios.get(`/articles?pageNumber=${pageNumber}`);
+        const newData = response.data.articles;
+        setArticleData((prevData) => [...prevData, ...newData]); // 기존 데이터와 새로운 데이터 결합
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
     };
+
     fetchData();
-  }, []);
+  }, [pageNumber]); // 페이지 번호가 변경될 때마다 실행
 
   let [query, setQuery] = useSearchParams();
 
@@ -216,10 +250,21 @@ const Post = () => {
         <WrapTitle>이적정보</WrapTitle>
         <ShowAll onClick={() => navigateHome()}>전체보기</ShowAll>
       </TitleWrap>
-
-      {teamName ? (
-        r_filterData.length > 0 ? (
-          r_filterData.map((post, index) => (
+      <PostContent>
+        {teamName ? (
+          filterData.length > 0 ? (
+            filterData.map((post, index) => (
+              <PostContainer key={index} onClick={() => handlePostContainerClick(post.content)}>
+                <Team className="team">{post.team}</Team>
+                <PostImage style={{ backgroundImage: `url(${post.url})` }} />
+                <PostTitle>{post.title}</PostTitle>
+              </PostContainer>
+            ))
+          ) : (
+            <EmptyContainer>해당 팀의 기사가 없습니다.</EmptyContainer>
+          )
+        ) : articleData.length > 0 ? (
+          articleData.map((post, index) => (
             <PostContainer key={index} onClick={() => handlePostContainerClick(post.content)}>
               <Team className="team">{post.team}</Team>
               <PostImage style={{ backgroundImage: `url(${post.url})` }} />
@@ -227,19 +272,10 @@ const Post = () => {
             </PostContainer>
           ))
         ) : (
-          <EmptyContainer>해당 팀의 기사가 없습니다.</EmptyContainer>
-        )
-      ) : r_articleData.length > 0 ? (
-        r_articleData.map((post, index) => (
-          <PostContainer key={index} onClick={() => handlePostContainerClick(post.content)}>
-            <Team className="team">{post.team}</Team>
-            <PostImage style={{ backgroundImage: `url(${post.url})` }} />
-            <PostTitle>{post.title}</PostTitle>
-          </PostContainer>
-        ))
-      ) : (
-        <EmptyContainer>기사가 없습니다.</EmptyContainer>
-      )}
+          <EmptyContainer>기사가 없습니다.</EmptyContainer>
+        )}
+        <div ref={ref}>안녕</div>
+      </PostContent>
     </PostWrap>
   );
 };

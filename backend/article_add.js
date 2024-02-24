@@ -21,11 +21,10 @@ async function insertDocument() {
     await connectToMongoDB();
 
     const newDocument = {
-      title: '‘성적 부진’ 투헬, 결국 떠난다…뮌헨, 올여름 이별 결정',
-      content:
-        'https://www.goal.com/kr/%EB%89%B4%EC%8A%A4/%E1%84%89%E1%85%A5%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8-%E1%84%87%E1%85%AE%E1%84%8C%E1%85%B5%E1%86%AB-%E1%84%90%E1%85%AE%E1%84%92%E1%85%A6%E1%86%AF-%E1%84%80%E1%85%A7%E1%86%AF%E1%84%80%E1%85%AE%E1%86%A8-%E1%84%84%E1%85%A5%E1%84%82%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1--%E1%84%86%E1%85%B1%E1%86%AB%E1%84%92%E1%85%A6%E1%86%AB-%E1%84%8B%E1%85%A9%E1%86%AF%E1%84%8B%E1%85%A7%E1%84%85%E1%85%B3%E1%86%B7-%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A7%E1%86%AF-%E1%84%80%E1%85%A7%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC-%E1%84%8B%E1%85%A9%E1%84%91%E1%85%B5%E1%84%89%E1%85%A7%E1%86%AF/blt4ac8a2abdc725d60',
-      url: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt40aa60a98719674f/65d5cdad6a9053040ae38f75/20240221_Thomas_Tuchel.jpg?auto=webp&format=pjpg&width=2048&quality=60',
-      team: '바이에른 뮌헨',
+      title: '‘주급이라도 아끼자’ 맨유, 앙토니 마샬 1년 연장 옵션 행사 안 한다',
+      content: 'https://www.stnsports.co.kr/news/articleView.html?idxno=210532',
+      url: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt75efef14859572cf/65a952bcda2a53040a5cf06a/Martial_Man_United.jpg?auto=webp&format=pjpg&width=2048&quality=60',
+      team: '맨유',
     };
 
     const insertResult = await collection.insertOne(newDocument);
