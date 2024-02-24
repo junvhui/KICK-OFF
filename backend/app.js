@@ -27,11 +27,9 @@ async function connectToMongoDB() {
 
 connectToMongoDB();
 
-const PAGE_SIZE = 3;
-
 app.get('/article', async (req, res) => {
   const pageNumber = req.query.pageNumber ? parseInt(req.query.pageNumber) : 1;
-
+  const PAGE_SIZE = 3;
   try {
     const articles = await articleCollection
       .find({})
