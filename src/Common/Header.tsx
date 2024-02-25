@@ -45,6 +45,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const navigateHome = () => {
+    location.reload();
     navigate(`/`);
   };
 

@@ -164,7 +164,7 @@ const TeamImage = styled.img`
 `;
 
 const Team = styled.h2`
-  font-size: 14px;
+  font-size: 12px;
   width: 80%;
   height: 2%;
   margin-top: -2rem;
@@ -246,7 +246,6 @@ const Rank: React.FC = () => {
       };
       LateamData.push(teams);
     }
-    console.log(LateamData);
 
     // -----------------------
     // 세리에 A 팀 이름, 로고 추출
