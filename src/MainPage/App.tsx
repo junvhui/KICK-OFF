@@ -149,13 +149,12 @@ const FlexContainer = styled.div`
 const ListWrapper = styled.div`
   width: 100%;
 
-  margin-right: 6%;
-  margin-top: 3.7rem;
+  margin-right: 5%;
+  margin-top: 3.8rem;
 `;
 
 const RankWrapper = styled.div`
   flex-grow: 3;
-  margin-left: 1rem;
 `;
 
 const Content = () => {
