@@ -198,8 +198,6 @@ const Post = () => {
 
   // 이적 기사 최신순 정렬
 
-  console.log(articleData);
-
   // Intersection Observer를 이용하여 무한 스크롤 감지
   const [pageNumber, setPageNumber] = useState(1);
   const [ref, inView] = useInView();

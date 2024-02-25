@@ -192,9 +192,6 @@ const Rank: React.FC = () => {
 
   // react-query Ranks 데이터 받아오기
   const { isLoading, data } = useQuery(['Ranks'], fetchRanks);
-  if (data) {
-    console.log(data);
-  }
 
   // if (isLoading) {
   //   return <div>Loading...</div>;
@@ -203,7 +200,6 @@ const Rank: React.FC = () => {
   if (data) {
     // 팀 별 데이터 저장
     const eplData = data[0].rank;
-    console.log(eplData);
     const BL1Data = data[1].rank;
     const LaData = data[3].rank;
     const SaData = data[2].rank;
@@ -265,7 +261,6 @@ const Rank: React.FC = () => {
       };
       SateamData.push(teams);
     }
-    console.log(SateamData);
 
     // -----------------------
     // 세리에 A 팀 이름, 로고 추출
@@ -280,7 +275,6 @@ const Rank: React.FC = () => {
       };
       L1teamData.push(teams);
     }
-    console.log(L1teamData);
 
     return (
       <Wrapper>
