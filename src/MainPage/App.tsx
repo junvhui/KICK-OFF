@@ -148,9 +148,9 @@ const FlexContainer = styled.div`
 
 const ListWrapper = styled.div`
   width: 100%;
-
-  margin-right: 2%;
-  margin-top: 3.75rem;
+  margin-left: -2rem;
+  margin-right: 5%;
+  margin-top: 3.78rem;
 `;
 
 const RankWrapper = styled.div`
