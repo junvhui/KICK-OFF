@@ -155,7 +155,7 @@ const ListWrapper = styled.div`
 
 const RankWrapper = styled.div`
   flex-grow: 3;
-  margin-left: 2rem;
+  margin-left: 1rem;
 `;
 
 const Content = () => {
