@@ -126,12 +126,13 @@ const Name = styled.div`
 `;
 
 const BottomBackground = styled.div`
-  width: 67%;
+  width: 100%;
   height: 100%;
-  margin-left: 16%;
+  justify-content: center;
   margin-top: -2rem;
   position: static;
   display: flex;
+  margin-left: -3rem;
 
   @media (max-width: 900px) {
     margin-top: 4rem;
@@ -146,7 +147,10 @@ const FlexContainer = styled.div`
 `;
 
 const ListWrapper = styled.div`
-  flex-grow: 7;
+  width: 100%;
+
+  margin-right: 6%;
+  margin-top: 3.7rem;
 `;
 
 const RankWrapper = styled.div`

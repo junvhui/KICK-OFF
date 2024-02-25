@@ -21,10 +21,10 @@ async function insertDocument() {
     await connectToMongoDB();
 
     const newDocument = {
-      title: '‘주급이라도 아끼자’ 맨유, 앙토니 마샬 1년 연장 옵션 행사 안 한다',
-      content: 'https://www.stnsports.co.kr/news/articleView.html?idxno=210532',
-      url: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt75efef14859572cf/65a952bcda2a53040a5cf06a/Martial_Man_United.jpg?auto=webp&format=pjpg&width=2048&quality=60',
-      team: '맨유',
+      title: '알폰소 데이비스, 레알 마드리드 간다 "이적료 최소 580억에 합의"',
+      content: 'https://v.daum.net/v/20240225182106255',
+      url: 'https://img3.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202402/25/spotvnews/20240225182108798dscr.jpg',
+      team: '레알 마드리드',
     };
 
     const insertResult = await collection.insertOne(newDocument);

@@ -17,8 +17,8 @@ interface PostProps {
 
 const PostWrap = styled.div`
   position: relative;
-  width: 40rem;
-  margin: 4rem auto;
+  width: 100%;
+
   border-radius: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -210,7 +210,6 @@ const Post = () => {
     }
   }, [inView]);
 
-  // 이전 코드와 동일하게 axios를 이용하여 데이터를 가져옴
   useEffect(() => {
     const fetchData = async () => {
       try {
