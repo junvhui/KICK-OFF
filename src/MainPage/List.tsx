@@ -199,6 +199,7 @@ const Post = () => {
   // 이적 기사 최신순 정렬
 
   console.log(articleData);
+  console.log('article');
 
   // Intersection Observer를 이용하여 무한 스크롤 감지
   const [pageNumber, setPageNumber] = useState(1);
@@ -217,8 +218,8 @@ const Post = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`/article?pageNumber=${pageNumber}`);
-        const newData = response.data.article;
-        console.log(newData);
+        const newData = response.data.article.reverse();
+
         setArticleData((prevData) => [...prevData, ...newData]); // 기존 데이터와 새로운 데이터 결합
       } catch (error) {
         console.error('Error fetching user data:', error);
