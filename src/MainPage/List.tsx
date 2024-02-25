@@ -17,7 +17,7 @@ interface PostProps {
 
 const PostWrap = styled.div`
   position: relative;
-  width: 100%;
+  width: 41rem;
 
   border-radius: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -41,7 +41,7 @@ const TitleWrap = styled.div`
 const WrapTitle = styled.h2`
   font-size: 22px;
   height: 0.5rem;
-  width: 75%;
+  width: 77%;
   color: #eae9e9;
   justify-content: center;
   padding: 0.5rem;
