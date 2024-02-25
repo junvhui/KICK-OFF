@@ -11,6 +11,7 @@ const Background = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 
+  margin-top: 5rem;
   position: relative;
   background-color: #363636;
 `;

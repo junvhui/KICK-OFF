@@ -164,7 +164,7 @@ const TeamImage = styled.img`
 `;
 
 const Team = styled.h2`
-  font-size: 12px;
+  font-size: 13px;
   width: 80%;
   height: 2%;
   margin-top: -2rem;
