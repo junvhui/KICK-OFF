@@ -217,7 +217,7 @@ const Post = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`/article?pageNumber=${pageNumber}`);
-        const newData = response.data.articles;
+        const newData = response.data.article;
         setArticleData((prevData) => [...prevData, ...newData]); // 기존 데이터와 새로운 데이터 결합
       } catch (error) {
         console.error('Error fetching user data:', error);
